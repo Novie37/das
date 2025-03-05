@@ -1,0 +1,74 @@
+LINK https://www.tutorialspoint.com/execute_matplotlib_online.php
+
+KOMENDA:
+
+import matplotlib.pyplot as plt
+
+# Dane wejściowe
+moje_dane = {
+    'Rozmiar Tablicy': [1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000], #uzupełnić właściwymi rozmiarami
+    'Sortowanie Bąbelkowe': [1, 4, 16, 64, 256], #uzupełnić właściwymi wynikami
+    'Sortowanie przez Wybieranie': [0.5, 2, 8, 32, 128, 512], #uzupełnić właściwymi wynikami
+}
+
+# Tworzenie wykresu
+plt.figure(figsize=(10, 5))
+
+# Rysowanie każdego algorytmu sortowania
+for algorytm, czasy in moje_dane.items():
+    if algorytm != 'Rozmiar Tablicy':  # Wyklucz 'Rozmiar Tablicy' z rysowania
+        plt.plot(moje_dane['Rozmiar Tablicy'][:len(czasy)], czasy, label=algorytm, marker='o')
+
+# Dodanie etykiet i tytułu
+#plt.xscale('log')  # Skala logarytmiczna na osi x 
+plt.xlabel('Rozmiar Tablicy')
+plt.ylabel('Czas (s)')
+plt.title('Wydajność Algorytmów Sortowania')
+plt.legend()
+plt.grid(True)
+
+# Wyświetlenie wykresu
+plt.show()
+
+Wyniki:
+ *************************************** Sortowanie bąbelkowe ***************************************
+
+        N         1         2         3      średnia
+     1000       0.000818  0.000827  0.000819  0.000821
+     2000       0.003582  0.003205  0.004253  0.003680
+     4000       0.015726  0.016316  0.016190  0.016077
+     8000       0.078196  0.078771  0.076232  0.077733
+    16000       0.346125  0.348381  0.346717  0.347074
+    32000       1.489467  1.512755  1.478147  1.493456
+    64000       6.224254  6.583894  6.520970  6.443039
+   128000       25.753235  25.030592  24.930452  25.238093
+
+Średnie czasy dla kolejnych rozmiarów tablicy:
+0.0008213, 0.0036799, 0.0160774, 0.077733, 0.347074, 1.49346, 6.44304, 25.2381,
+ ******************************** Sortowanie przez proste wybieranie ********************************
+
+        N         1         2         3      średnia
+     1000       0.000289  0.000289  0.000289  0.000289
+     2000       0.001163  0.001161  0.001160  0.001161
+     4000       0.004620  0.004643  0.004620  0.004628
+     8000       0.018275  0.018251  0.018449  0.018325
+    16000       0.074265  0.075704  0.074455  0.074808
+    32000       0.302460  0.309132  0.295626  0.302406
+    64000       1.182922  1.178373  1.173988  1.178428
+   128000       4.738810  4.845241  5.035984  4.873345
+   256000       19.737919  19.501876  19.308612  19.516136
+   512000       78.521647  81.811956  82.110609  80.814737
+
+Średnie czasy dla kolejnych rozmiarów tablicy:
+0.000289033, 0.00116133, 0.00462757, 0.018325, 0.074808, 0.302406, 1.17843, 4.87335, 19.5161, 80.8147,
+ ******************************** Sortowanie przez proste wstawianie ********************************
+
+        N         1         2         3      średnia
+     1000       Tablica nieposortowana!!
+ ******************************** Sortowanie bąbelkowe z modyfikacją ********************************
+
+        N         1         2         3      średnia
+     1000       Tablica nieposortowana!!
+
+C:\Users\janmr\source\repos\ConsoleApplication10\x64\Release\ConsoleApplication10.exe (proces 792) zakończono z kodem 0 (0x0).
+Naciśnij dowolny klawisz, aby zamknąć to okno...
